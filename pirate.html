@@ -35,6 +35,7 @@
     <div id="help-report">
         <p>Help report</p>
     </div>
+    
 
     <style>
         /* CSS for the grid */
@@ -68,92 +69,163 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Treasure Hunt Game</h1>
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item" id="image1" onClick="check(0)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image2" onClick="check(1214)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image3" onClick="check(2)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image4" onClick="check(3)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
-            <img src="first.jpg" alt="Starting Point">
-
-        </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image5" onClick="check(4)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image6" onClick="check(5)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image7" onClick="check(6)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image8" onClick="check(7)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
-            <img src="first.jpg" alt="Starting Point">
-
-        </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image9" onClick="check(8)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image10" onClick="check(9)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image11" onClick="check(10)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image12" onClick="check(11)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
-            <img src="first.jpg" alt="Starting Point">
-
-        </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image13" onClick="check(12)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image14" onClick="check(13)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image15" onClick="check(14)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image16" onClick="check(15)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
-            <img src="first.jpg" alt="Starting Point">
-
-        </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image17" onClick="check(16)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image18" onClick="check(17)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image19" onClick="check(18)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image20" onClick="check(19)">
             <img src="first.jpg" alt="Starting Point">
         </div>
-        <div class="grid-item">
+        <div class="grid-item" id="image21" onClick="check(20)">
             <img src="first.jpg" alt="Starting Point">
-
+        </div>
+        <div class="grid-item" id="image22" onClick="check(21)">
+            <img src="first.jpg" alt="Starting Point">
+        </div>
+        <div class="grid-item" id="image23" onClick="check(22)">
+            <img src="first.jpg" alt="Starting Point">
+        </div>
+        <div class="grid-item" id="image24" onClick="check(23)">
+            <img src="first.jpg" alt="Starting Point">
+        </div>
+        <div class="grid-item" id="image25" onClick="check(24)">
+            <img src="first.jpg" alt="Starting Point">
         </div>
         
+        
     </div>
-
+    <script>
+        // Array of unique IDs for the 25 images
+        var ids = [
+            "image1", "image2", "image3", "image4", "image5",
+            "image6", "image7", "image8", "image9", "image10",
+            "image11", "image12", "image13", "image14", "image15",
+            "image16", "image17", "image18", "image19", "image20",
+            "image21", "image22", "image23", "image24", "image25"
+        ];
+    
+        // Variable to keep track of checked images
+        var checkCount = 0;
+    
+        // Variable to track penalties
+        var penalty = 0;
+    
+        // Variable to track the last checked image
+        var lastCheck = 0;
+    
+        // Variable to store the treasure location
+        var treasureLocation = 5;
+    
+        // Variable to store the trap location
+        var trapLocation = 18;
+    
+        // Variable to represent the game state
+        var gameOver = false;
+    
+        // JavaScript code to handle clicks
+        function check(position) {
+            // If the game is over, do nothing
+            if (gameOver) {
+                return;
+            }
+    
+            // Get the ID of the clicked image using the ids array
+            var clickedImageID = ids[position];
+    
+            // Get the image element associated with the clicked ID
+            var clickedImage = document.getElementById(clickedImageID);
+    
+            // Check if the position matches the treasure location
+            if (position === treasureLocation) {
+                // Change the image source to the treasure image
+                clickedImage.src = "treasure.jpg";
+                alert("Congratulations! You found the treasure!");
+                gameOver = true; // Game is over
+    
+                // Subtract three from the penalty
+                penalty -= 3;
+            } else if (position === trapLocation) {
+                // Change the image source to the trap image
+                clickedImage.src = "trap.jpg";
+                alert("Oops! You triggered a trap!");
+                penalty += 4; // Add four to the penalty for triggering a trap
+                gameOver = true; // Game is over
+            } else {
+                // Change the image source to the pirate image
+                clickedImage.src = "pirate.jpg";
+                alert("You found nothing.");
+            }
+    
+            lastCheck = position; // Update the last checked image to the current position
+            checkCount++; // Increment the checkCount
+    
+            // Update the text on the element with the ID "locations"
+            var locationsElement = document.getElementById("locations");
+            locationsElement.textContent = "Number of locations checked is " + checkCount;
+    
+            // Update the text on the element with the ID "penalty"
+            var penaltyElement = document.getElementById("penalty");
+            penaltyElement.textContent = "Penalty is " + penalty;
+        }
+    </script>
+    
 </body>
 </html>
 	
