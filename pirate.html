@@ -9,8 +9,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         div {
-         filter: drop-shadow(3px 3px 3px rgb(119, 88, 198))
+         filter: drop-shadow(3px 3px 3px #f661d8)
       }
+
+
+
     </style>
 </head>
 
@@ -21,7 +24,14 @@
     <p id="penalty" style=" background-color: #d2f1fc; font-style: italic; color: rgb(210, 66, 26); text-align: center;">Penalty is zero.</p>
     <p style=" background-color: #d2f1fc; color: darkblue; text-align: center;" onclick="help()"><b>Click for help</b></p>
     <p id="help" style=" background-color: #d2f1fc;color: green; text-align: center;">Help report</p>
-
+    <div style="text-align: center;">
+        <button type="button" class="btn btn-primary no-shadow" onclick="randomGame()">
+            New Game
+        </button>
+    </div>
+    </div>
+        </div>
+<p></p>
     <div class="container">
         <div class="row">
             <div class="col-sm-2"><img src="first.jpg" alt="Map" length="150px" width="150px" id="1" onclick="check(0)"></div>
@@ -60,8 +70,7 @@
         </div><br>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" onclick="randomGame()">
-        New Game</button>
+    
     <Script>
         let checkCount=0;
         let penalty=0;
